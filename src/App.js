@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
-// import Accordion from './components/Accordion';
-// import Search from './components/Search';
+import Main from './components/Main';
+import Accordion from './components/Accordion';
+import Search from './components/Search';
 import Dropdown from './components/Dropdown';
+import Route from './components/Route';
+import Header from './components/Header';
 
-// const items = [
-//     {
-//         title: 'What is React?',
-//         content: 'React is a front end javascript framework'
-//     },
-//     {
-//         title: 'Why user React?',
-//         content: 'React is a favorite JS library among engineers'
-//     },
-//     {
-//         title: 'How do you use React?',
-//         content: 'You use React by creating components'
-//     }
-// ]
+const items = [
+    {
+        title: 'What is React?',
+        content: 'React is a front end javascript framework'
+    },
+    {
+        title: 'Why user React?',
+        content: 'React is a favorite JS library among engineers'
+    },
+    {
+        title: 'How do you use React?',
+        content: 'You use React by creating components'
+    }
+]
 
 const options =[
     {
@@ -36,15 +39,22 @@ const options =[
 // eslint-disable-next-line import/no-anonymous-default-export
 export default () => {
     const [selected, setSelected] = useState(options[0]);
-    const [showDropdown, setShowDropdown] = useState(true);
 
     return (
         <div>
-            <button onClick={() => setShowDropdown(!showDropdown)}>Toggle Drowdown</button>
-            {showDropdown ?
-                <Dropdown selected= {selected} options={options} onSelectedChange={setSelected}/>
-            : null
-            }
+            <Header />
+            <Route path='/'>
+                <Main />
+            </Route>
+            <Route path='/accordion'>
+                <Accordion items={items} />
+            </Route>
+            <Route path='/list'>
+                <Search />
+            </Route>
+            <Route path='/dropdown'>
+                <Dropdown options={options} selected={selected} onSelectedChange={setSelected}/>
+            </Route>
         </div>
     );
 };

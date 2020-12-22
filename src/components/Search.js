@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Search = () => {
-    const [term, setTerm] = useState('canada');
+    const [term, setTerm] = useState('techno music');
     const [results, setResults] = useState([])
 
     useEffect(() => {
