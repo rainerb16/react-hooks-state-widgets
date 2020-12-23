@@ -2,6 +2,8 @@
 
 React practice using React Hooks and State, there are a couple of small widgets demonstrating this.
 
+live site: [HERE](https://reactwidgets.netlify.app/)
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
